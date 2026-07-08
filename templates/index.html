@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Alcohol Consumption Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🍺 Alcohol Consumption Prediction</h1>
+
+<p>
+Predict the total litres of pure alcohol consumed
+based on country and beverage servings.
+</p>
+
+<form action="/predict" method="POST">
+
+<label>Country</label>
+
+<select name="country">
+
+<option>Afghanistan</option>
+<option>Albania</option>
+<option>Algeria</option>
+<option>Andorra</option>
+<option>Angola</option>
+<option>Argentina</option>
+<option>Australia</option>
+<option>Austria</option>
+<option>Bangladesh</option>
+<option>Brazil</option>
+<option>Canada</option>
+<option>China</option>
+<option>France</option>
+<option>Germany</option>
+<option>India</option>
+<option>Italy</option>
+<option>Japan</option>
+<option>Malaysia</option>
+<option>Pakistan</option>
+<option>Singapore</option>
+<option>Sri Lanka</option>
+<option>United Kingdom</option>
+<option>USA</option>
+
+</select>
+
+<label>Continent</label>
+
+<select name="continent">
+
+<option>Africa</option>
+<option>Asia</option>
+<option>Europe</option>
+<option>North America</option>
+<option>Oceania</option>
+<option>South America</option>
+
+</select>
+
+<label>Beer Servings</label>
+
+<input type="number"
+name="beer"
+required>
+
+<label>Spirit Servings</label>
+
+<input type="number"
+name="spirit"
+required>
+
+<label>Wine Servings</label>
+
+<input type="number"
+name="wine"
+required>
+
+<button type="submit">
+
+Predict
+
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>
+
+Predicted Alcohol Consumption
+
+</h2>
+
+<h1>{{ prediction }} litres</h1>
+
+</div>
+
+{% endif %}
+
+<hr>
+
+<h2>Exploratory Data Analysis</h2>
+
+<div class="graphs">
+
+<img src="{{ url_for('static', filename='images/histogram.png') }}">
+
+<img src="{{ url_for('static', filename='images/heatmap.png') }}">
+
+<img src="{{ url_for('static', filename='images/boxplot.png') }}">
+
+<img src="{{ url_for('static', filename='images/scatter.png') }}">
+
+</div>
+
+</div>
+
+</body>
+</html>
